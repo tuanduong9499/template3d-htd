@@ -1,0 +1,42 @@
+[
+  {
+      "key": "character1",
+      "src": "../models/character1.glb",
+      "type": "model"
+  },
+  {
+      "key": "character2",
+      "src": "../models/character2.glb",
+      "type": "model"
+  },
+  {
+      "key": "model_chef",
+      "src": "../models/model_chef.glb",
+      "type": "model"
+  },
+  {
+      "key": "materialCharacterBody",
+      "src": "../textures/FemaleFitA_Body_diffuse.png",
+      "type": "texture"
+  },
+  {
+      "key": "materialCharacterClothes",
+      "src": "../textures/Erika_Archer_Clothes_diffuse.png",
+      "type": "texture"
+  },
+  {
+      "key": "materialCharacterEye",
+      "src": "../textures/FemaleFitA_eyelash_diffuse.png",
+      "type": "texture"
+  },
+  {
+      "key": "materialCharacter3",
+      "src": "../textures/FemaleFitA_StdNM.png",
+      "type": "texture"
+  },
+  {
+      "key": "background",
+      "src": "../sprites/bg_selectCar.png",
+      "type": "sprite"
+  }
+]

@@ -38,5 +38,26 @@
       "key": "background",
       "src": "../sprites/bg_selectCar.png",
       "type": "sprite"
+  },
+  {
+    "key": "car2",
+    "src": "../models/car2.glb",
+    "type": "model"
+  },
+  {
+    "key": "car_taxi",
+    "src": "../models/car_taxi.glb",
+    "type": "model"
+  },
+  {
+    "key": "car_police",
+    "src": "../models/car_police.glb",
+    "type": "model"
+  }
+  ,
+  {
+    "key": "PolygonCity_Texture_01_A",
+    "src": "../textures/PolygonCity_Texture_01_A.png",
+    "type": "texture"
   }
 ]

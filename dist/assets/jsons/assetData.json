@@ -38,5 +38,10 @@
       "key": "background",
       "src": "../sprites/bg_selectCar.png",
       "type": "sprite"
+  },
+  {
+    "key": "carTaxi",
+    "src": "../models/car_taxi.glb.glb",
+    "type": "model"
   }
 ]

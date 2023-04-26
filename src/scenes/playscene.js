@@ -1,5 +1,6 @@
 import { Color, ELEMENTTYPE_IMAGE, Entity, Plane, Ray, StandardMaterial, Vec2, Vec3, Vec4, app } from "playcanvas";
 import { AssetLoader } from "../assetLoader/assetLoader";
+import { ObjectFactory } from "../template/objectFactory";
 
 export class PlayScene extends Entity {
   constructor(){
@@ -10,12 +11,8 @@ export class PlayScene extends Entity {
   _setup(){
     this._initCamera();
     this._initLight();
-    this._initPlane();
-    this._initBox();
-    this._initModelCharacter();
-    this._initScreen();
-    this.rayCastMouseWithModel();
-    //this._initBackground();
+    this._initPlane(); 
+    this._initModelCar();
   }
 
   _initCamera(){
@@ -23,7 +20,7 @@ export class PlayScene extends Entity {
     this.camera.addComponent("camera", {
       clearColor: new Color(0.1, 0.1, 0.1),
     });
-    this.camera.setLocalPosition(5, 5 , 5);
+    this.camera.setLocalPosition(7, 6 , 6);
     this.camera.setEulerAngles(-30, 45, 0);
     this.addChild(this.camera);
   }
@@ -54,59 +51,18 @@ export class PlayScene extends Entity {
     this.addChild(this.plane);  
 
     let material = new StandardMaterial();
-    material.diffuse = new Color(0.32, 0.5, 0.1);
+    material.diffuse = new Color(1, 1, 1);
     this.plane.model.meshInstances[0].material = material;
   }
 
-  _initBox(){
-    this.box = new Entity();
-    this.box.addComponent("model", {
-      type : "box",
-      castShadow: true,
+  
+
+  _initModelCar(){
+    this.carPolice = new Entity();
+    this.carPolice.addComponent("model", {
+      asset : AssetLoader.getAssetByKey("car_police")
     });
-    this.box.setLocalPosition(0, 0.5, 0);
-    this.addChild(this.box);
-
-    let material = new StandardMaterial();
-    material.diffuse = new Color(1, 0, 0);
-    this.box.model.meshInstances[0].material = material;
-  }
-
-  _initModelCharacter(){
-    this.character = new Entity();
-    this.character.addComponent("model", {
-      asset: AssetLoader.getAssetByKey("character1")
-    })
-    this.addChild(this.character);
-
-    let material0 = new StandardMaterial();
-    material0.diffuseMap = AssetLoader.getAssetByKey("materialCharacterBody").resource;
-    this.character.model.meshInstances[0].material = material0;
-
-    let material1 = new StandardMaterial();
-    material1.diffuseMap = AssetLoader.getAssetByKey("materialCharacterClothes").resource;
-    this.character.model.meshInstances[1].material = material1;
-
-    let material2 = new StandardMaterial();
-    material2.diffuseMap = AssetLoader.getAssetByKey("materialCharacterEye").resource;
-    this.character.model.meshInstances[2].material = material2;
-
-     let material3 = new StandardMaterial();
-    material2.diffuseMap = AssetLoader.getAssetByKey("materialCharacter3").resource;
-    this.character.model.meshInstances[3].material = material3;
-  }
-
-  _initScreen(){
-    this.screen = new Entity();
-    this.screen.addComponent("screen", {
-      referenceResolution: new pc.Vec2(1280, 720),
-      resolution: new pc.Vec2(1280, 720),
-      scaleMode: pc.SCALEMODE_BLEND,
-      screenSpace: true,
-      anchor: new Vec4(0.5, 0.5, 0.5, 0.5),
-      pivot: new Vec2(0.5, 0.5)
-    });
-    this.addChild(this.screen);
+    this.addChild(this.carPolice);
   }
 
   _initBackground(){

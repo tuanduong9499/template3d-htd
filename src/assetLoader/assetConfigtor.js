@@ -1,9 +1,10 @@
-import { BLENDMODE_CONSTANT_ALPHA, BLEND_ADDITIVEALPHA, BLEND_NONE, Color, StandardMaterial } from "playcanvas";
+import { BLENDMODE_CONSTANT_ALPHA, BLEND_ADDITIVEALPHA, BLEND_NONE, Color, StandardMaterial, Texture, app } from "playcanvas";
 import { AssetLoader } from "./assetLoader";
 
 export class AssetConfig {
-  static config(){
+  static config(app){
     this._configCar("PolygonCity_Texture_01_A", "car_police");
+    this._configSkyboxCubemap(app);
   }
 
   static _configObject(texture, keyModel){
@@ -32,7 +33,23 @@ export class AssetConfig {
     model.meshInstances.forEach((mesh) => {
       mesh.material = material;
       model.meshInstances[1].material = materialColor;
-
     });
+  }
+
+  static _configSkyboxCubemap(app) {
+    let textures = [
+      AssetLoader.getAssetByKey("negx"),
+      AssetLoader.getAssetByKey("negy"),
+      AssetLoader.getAssetByKey("negz"),
+      AssetLoader.getAssetByKey("posx"),
+      AssetLoader.getAssetByKey("posy"),
+      AssetLoader.getAssetByKey("posz"),
+    ];
+    let cmSkybox = new Texture(app.graphicsDevice, {
+      cubemap: true,
+    });
+    cmSkybox.setSource(textures.map((texture) => texture.resource.getSource()));
+    console.log(cmSkybox)
+    AssetLoader.registerAsset(cmSkybox, "cm_skybox", "cubemap");
   }
 }

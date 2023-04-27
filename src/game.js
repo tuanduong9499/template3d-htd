@@ -1,6 +1,7 @@
 import { Application, ElementInput, Keyboard, Mouse, TouchDevice } from "playcanvas";
 import { PlayScene } from "./scenes/playscene";
 import { AssetLoader } from "./assetLoader/assetLoader";
+import { loadObitCameraPlugin } from "../src/scripts/orbit-camera";
 
 export class Game {
   constructor(){
@@ -21,11 +22,12 @@ export class Game {
       this.app.start();
       this.app.on("update", (dt) => this.update(dt))
       this._initPlayScene();
-    })
+    });
+    loadObitCameraPlugin();
   }
 
   _initPlayScene(){
-    this.playScene = new PlayScene();
+    this.playScene = new PlayScene(this.app);
     this.app.root.addChild(this.playScene);
   }
 

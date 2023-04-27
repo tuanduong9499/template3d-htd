@@ -1,18 +1,25 @@
 import { Color, ELEMENTTYPE_IMAGE, Entity, Plane, Ray, StandardMaterial, Vec2, Vec3, Vec4, app } from "playcanvas";
 import { AssetLoader } from "../assetLoader/assetLoader";
 import { ObjectFactory } from "../template/objectFactory";
+import { Car } from "../objects/car/car";
+import { SelectCarScreen } from "../screens/selectCarScreen/selectCarScreen";
+import { CarManager } from "../objects/car/carManager";
+import { buttonChangeCarEvent } from "../screens/selectCarScreen/changeModelCarPanel";
 
 export class PlayScene extends Entity {
-  constructor(){
+  constructor(app){
     super();  
+    this.app = app;
     this._setup();
   }
 
   _setup(){
+    this.app.scene.skybox = AssetLoader.getAssetByKey("cm_skybox").resource;
     this._initCamera();
     this._initLight();
     this._initPlane(); 
-    this._initModelCar();
+    this._initCarManager();
+    this._initSelectCarScreen();
   }
 
   _initCamera(){
@@ -23,6 +30,16 @@ export class PlayScene extends Entity {
     this.camera.setLocalPosition(7, 6 , 6);
     this.camera.setEulerAngles(-30, 45, 0);
     this.addChild(this.camera);
+
+    this.camera.addComponent("script");
+    this.camera.addComponent("script");
+    this.camera.script.create("orbitCamera", {
+      attributes: {
+        inertiaFactor: 0.2,
+      },
+    });
+    this.camera.script.create("orbitCameraInputMouse");
+    this.camera.script.create("orbitCameraInputTouch");
   }
 
   _initLight(){
@@ -55,26 +72,23 @@ export class PlayScene extends Entity {
     this.plane.model.meshInstances[0].material = material;
   }
 
-  
-
-  _initModelCar(){
-    this.carPolice = new Entity();
-    this.carPolice.addComponent("model", {
-      asset : AssetLoader.getAssetByKey("car_police")
-    });
-    this.addChild(this.carPolice);
+  _initCarManager(){
+    this.carManager = new CarManager();
+    this.addChild(this.carManager);
   }
 
-  _initBackground(){
-    this.bg = new Entity();
-    this.bg.addComponent("sprite", {
-      type : ELEMENTTYPE_IMAGE,
-      spriteAsset: AssetLoader.getAssetByKey("background"),
+  _initSelectCarScreen(){
+    this.selectCarScreen = new SelectCarScreen();
+    this.addChild(this.selectCarScreen);
+
+    this.selectCarScreen.changeModelCar.on("tap", (type) => {
+      if(type === buttonChangeCarEvent.btnPolice){
+        this.carManager.changeModel("car_police");
+      }
+      else if(type === buttonChangeCarEvent.btnTaxi){
+        this.carManager.changeModel("car_taxi");
+      }
     });
-    this.addChild(this.bg);
-    this.bg.setPosition(0, 0, 0)
-    this.bg.setLocalScale(30, 30, 30);
-    console.log(this.bg)
   }
 
   rayCastMouseWithModel(){

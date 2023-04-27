@@ -53,11 +53,40 @@
     "key": "car_police",
     "src": "../models/car_police.glb",
     "type": "model"
-  }
-  ,
+  },
   {
     "key": "PolygonCity_Texture_01_A",
     "src": "../textures/PolygonCity_Texture_01_A.png",
+    "type": "texture"
+  },
+  {
+    "key": "negx",
+    "src": "../textures/negx.jpg",
+    "type": "texture"
+  },
+  {
+    "key": "negy",
+    "src": "../textures/negy.jpg",
+    "type": "texture"
+  },
+  {
+    "key": "negz",
+    "src": "../textures/negz.jpg",
+    "type": "texture"
+  },
+  {
+    "key": "posx",
+    "src": "../textures/posx.jpg",
+    "type": "texture"
+  },
+  {
+    "key": "posy",
+    "src": "../textures/posy.jpg",
+    "type": "texture"
+  },
+  {
+    "key": "posz",
+    "src": "../textures/posz.jpg",
     "type": "texture"
   }
 ]

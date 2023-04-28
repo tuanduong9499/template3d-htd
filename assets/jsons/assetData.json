@@ -1,52 +1,62 @@
 [
-  {
-    "key": "background",
-    "src": "../sprites/bg_selectCar.png",
-    "type": "sprite"
-  },
-  {
-    "key": "tex_skybox_back",
-    "src": "../textures/tex_skybox_back.jpg",
-    "type": "texture"
-  },
-  {
-    "key": "tex_skybox_down",
-    "src": "../textures/tex_skybox_down.jpg",
-    "type": "texture"
-  },
-  {
-    "key": "tex_skybox_front",
-    "src": "../textures/tex_skybox_front.jpg",
-    "type": "texture"
-  },
-  {
-    "key": "tex_skybox_left",
-    "src": "../textures/tex_skybox_left.jpg",
-    "type": "texture"
-  },
-  {
-    "key": "tex_skybox_right",
-    "src": "../textures/tex_skybox_right.jpg",
-    "type": "texture"
-  },
-  {
-    "key": "tex_skybox_up",
-    "src": "../textures/tex_skybox_up.jpg",
-    "type": "texture"
-  },
-  {
-    "key": "anim_idle",
-    "src": "../animations/idle.glb",
-    "type": "animation"
-  },
-  {
-    "key": "anim_run",
-    "src": "../animations/run.glb",
-    "type": "animation"
-  },
-  {
-    "key": "character",
-    "src": "../models/character.glb",
-    "type": "model"
-}
+    {
+        "key": "background",
+        "src": "../sprites/bg_selectCar.png",
+        "type": "sprite"
+    },
+    {
+        "key": "tex_skybox_back",
+        "src": "../textures/tex_skybox_back.jpg",
+        "type": "texture"
+    },
+    {
+        "key": "tex_skybox_down",
+        "src": "../textures/tex_skybox_down.jpg",
+        "type": "texture"
+    },
+    {
+        "key": "tex_skybox_front",
+        "src": "../textures/tex_skybox_front.jpg",
+        "type": "texture"
+    },
+    {
+        "key": "tex_skybox_left",
+        "src": "../textures/tex_skybox_left.jpg",
+        "type": "texture"
+    },
+    {
+        "key": "tex_skybox_right",
+        "src": "../textures/tex_skybox_right.jpg",
+        "type": "texture"
+    },
+    {
+        "key": "tex_skybox_up",
+        "src": "../textures/tex_skybox_up.jpg",
+        "type": "texture"
+    },
+    {
+        "key": "anim_idle",
+        "src": "../animations/idle.glb",
+        "type": "animation"
+    },
+    {
+        "key": "anim_run",
+        "src": "../animations/run.glb",
+        "type": "animation"
+    },
+    {
+        "key": "character",
+        "src": "../models/character.glb",
+        "type": "model"
+    },
+    {
+        "key": "Boy01_diffuse",
+        "src": "../textures/Boy01_diffuse.jpeg",
+        "type": "texture"
+    },
+    {
+        "key": "Boy01_FacialAnimMap",
+        "src": "../textures/Boy01_FacialAnimMap.png",
+        "type": "texture"
+    }
 ]

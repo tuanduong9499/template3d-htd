@@ -37,12 +37,12 @@
   {
     "key": "anim_idle",
     "src": "../animations/idle.glb",
-    "type": "model"
+    "type": "animation"
   },
   {
     "key": "anim_run",
     "src": "../animations/run.glb",
-    "type": "model"
+    "type": "animation"
   },
   {
     "key": "character",

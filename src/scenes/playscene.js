@@ -1,4 +1,4 @@
-import { Color, ELEMENTTYPE_IMAGE, Entity, Plane, Ray, StandardMaterial, Vec2, Vec3, Vec4, app } from "playcanvas";
+import { Color, ELEMENTTYPE_IMAGE, Entity, Plane, Quat, Ray, StandardMaterial, Vec2, Vec3, Vec4, app } from "playcanvas";
 import { AssetLoader } from "../assetLoader/assetLoader";
 import { Character } from "../objects/character/character";
 
@@ -11,8 +11,10 @@ export class PlayScene extends Entity {
   _setup(){
     this._initCamera();
     this._initLight();
+    this._initRay();
     this._initGround();
     this._initCharacter();
+    this.rayCastMouseWithGround();
   }
 
   _initCamera(){
@@ -43,16 +45,16 @@ export class PlayScene extends Entity {
   }
 
   _initGround(){
-    this.plane = new Entity();
-    this.plane.addComponent("model",{
+    this.ground = new Entity();
+    this.ground.addComponent("model",{
       type : "plane",
     })
-    this.plane.setLocalScale(8, 1, 142);
-    this.addChild(this.plane);  
+    this.ground.setLocalScale(8, 1, 142);
+    this.addChild(this.ground);  
 
     let material = new StandardMaterial();
     material.diffuse = new Color(1, 1, 1);
-    this.plane.model.meshInstances[0].material = material;
+    this.ground.model.meshInstances[0].material = material;
   }
 
   _initCharacter(){
@@ -60,9 +62,12 @@ export class PlayScene extends Entity {
     this.addChild(this.character);
   }
 
-  rayCastMouseWithModel(){
+  _initRay(){
     this.ray = new Ray();
     this.hitPosition = new Vec3();
+  }
+
+  rayCastMouseWithGround(dt){
     document.addEventListener("pointerdown", (e) => {
       let from = this.camera.camera.screenToWorld(
         e.clientX,
@@ -78,9 +83,10 @@ export class PlayScene extends Entity {
       );
       this.ray.direction.sub(this.ray.origin).normalize();
 
-      let boundingBox = this.box.model.meshInstances[0]._aabb;
+      let boundingBox = this.ground.model.meshInstances[0]._aabb;
       
       let rs = boundingBox.intersectsRay(this.ray, this.hitPosition);
+
       console.log(rs)
     })
   }

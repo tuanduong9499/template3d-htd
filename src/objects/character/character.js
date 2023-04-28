@@ -17,18 +17,12 @@ export class Character extends Entity {
 
   _initAnimation(){
     this.character.addComponent("animation", {
-      assets : [AssetLoader.getAssetByKey("anim_idle")],
+      assets : [
+        AssetLoader.getAssetByKey("anim_idle"),
+        AssetLoader.getAssetByKey("anim_run")
+      ],
       activate : true,
       loop : true,
-    });
-
-    document.addEventListener("pointerdown", () => {
-      this.isEnable = !this.isEnable;
-      if(this.isEnable){
-        this.character.animation.enabled = true;
-      }else{
-        this.character.animation.enabled = false;
-      }
     });
   }
 }

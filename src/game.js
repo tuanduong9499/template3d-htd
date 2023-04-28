@@ -31,6 +31,6 @@ export class Game {
   }
 
   update(dt){
-    //this.playScene.update(dt);
+    this.playScene.update(dt);
   }
 }

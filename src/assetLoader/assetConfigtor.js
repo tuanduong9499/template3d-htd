@@ -4,6 +4,7 @@ import { AssetLoader } from "./assetLoader";
 export class AssetConfig {
   static config(app){
     this._configCar("PolygonCity_Texture_01_A", "car_police");
+    this._configCar("PolygonCity_Texture_01_A", "car_taxi");
     this._configSkyboxCubemap(app);
   }
 

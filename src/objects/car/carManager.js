@@ -10,18 +10,28 @@ export class CarManager extends Entity {
   }
 
   _initCar(){
-    this.carPolice = new Car("car_police");
+    this.carPolice = new Car("car_police", 250, 300, 90);
+    this.carPolice.isDefault = true;
     this.addChild(this.carPolice);
-    this.carTaxi = new Car("car_taxi");
+    this.carTaxi = new Car("car_taxi", 180, 220, 70);
     this.addChild(this.carTaxi);
     this.cars.push(this.carPolice, this.carTaxi);
+    this.cars.forEach((car) => {
+      car.hide();
+      if(car.isDefault){
+        car.show();
+      }
+    })
   }
 
   changeModel(modelAsset){
-
+    this.cars.forEach((car) => {
+      if(car.name === modelAsset){
+        car.show();
+      }else{
+        car.hide();
+      }
+    })
   }
 
-  destroy(){
-    this.car.destroy();
-  }
 }

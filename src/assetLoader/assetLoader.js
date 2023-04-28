@@ -1,5 +1,6 @@
 import { ADDRESS_REPEAT, Asset, AssetListLoader, FILTER_LINEAR, Sprite, Texture, TextureAtlas, Vec2, Vec4 } from "playcanvas";
 import assetData from "../../assets/jsons/assetData.json";
+import { AssetConfig } from "./assetConfigtor";
 export class AssetLoader {
   static loadAssets(app, callback) {
     this.app = app;
@@ -27,6 +28,7 @@ export class AssetLoader {
       this._loadTextures(() => {
         this._loadTextureAtlases();
         this._loadSpriteAssets();
+        AssetConfig.config(this.app);
         callback();
       });
     });

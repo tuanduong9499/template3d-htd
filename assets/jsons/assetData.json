@@ -1,42 +1,52 @@
 [
   {
-      "key": "character1",
-      "src": "../models/character1.glb",
-      "type": "model"
+    "key": "background",
+    "src": "../sprites/bg_selectCar.png",
+    "type": "sprite"
   },
   {
-      "key": "character2",
-      "src": "../models/character2.glb",
-      "type": "model"
+    "key": "tex_skybox_back",
+    "src": "../textures/tex_skybox_back.jpg",
+    "type": "texture"
   },
   {
-      "key": "model_chef",
-      "src": "../models/model_chef.glb",
-      "type": "model"
+    "key": "tex_skybox_down",
+    "src": "../textures/tex_skybox_down.jpg",
+    "type": "texture"
   },
   {
-      "key": "materialCharacterBody",
-      "src": "../textures/FemaleFitA_Body_diffuse.png",
-      "type": "texture"
+    "key": "tex_skybox_front",
+    "src": "../textures/tex_skybox_front.jpg",
+    "type": "texture"
   },
   {
-      "key": "materialCharacterClothes",
-      "src": "../textures/Erika_Archer_Clothes_diffuse.png",
-      "type": "texture"
+    "key": "tex_skybox_left",
+    "src": "../textures/tex_skybox_left.jpg",
+    "type": "texture"
   },
   {
-      "key": "materialCharacterEye",
-      "src": "../textures/FemaleFitA_eyelash_diffuse.png",
-      "type": "texture"
+    "key": "tex_skybox_right",
+    "src": "../textures/tex_skybox_right.jpg",
+    "type": "texture"
   },
   {
-      "key": "materialCharacter3",
-      "src": "../textures/FemaleFitA_StdNM.png",
-      "type": "texture"
+    "key": "tex_skybox_up",
+    "src": "../textures/tex_skybox_up.jpg",
+    "type": "texture"
   },
   {
-      "key": "background",
-      "src": "../sprites/bg_selectCar.png",
-      "type": "sprite"
-  }
+    "key": "anim_idle",
+    "src": "../animations/idle.glb",
+    "type": "model"
+  },
+  {
+    "key": "anim_run",
+    "src": "../animations/run.glb",
+    "type": "model"
+  },
+  {
+    "key": "character",
+    "src": "../models/character.glb",
+    "type": "model"
+}
 ]

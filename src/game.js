@@ -18,6 +18,7 @@ export class Game {
     window.addEventListener("resize", () => this.app.resizeCanvas());
     
     AssetLoader.loadAssets(this.app, () => {
+      this.app.scene.skybox = AssetLoader.getAssetByKey("cm_skybox").resource;
       this.app.start();
       this.app.on("update", (dt) => this.update(dt))
       this._initPlayScene();
